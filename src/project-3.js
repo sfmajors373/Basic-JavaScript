@@ -10,8 +10,8 @@ const makeCat = (name, age) => {
       this.name = name;
       this.age = age;
     }
-  meow() {
-      return `Meow!`;
+    meow() {
+      return 'Meow!';
     }
   }
   return new Cat(name, age);
@@ -25,12 +25,12 @@ const addProperty = (object, property) => {
   return object;
 };
 
-const invokeMethod = (object, method) => {
+function invokeMethod(object, method) {
   // method is a string that contains the name of a method on the object
   // invoke this method
   // nothing needs to be returned
-  object[method].bind(this);
-};
+  this.object[method]();
+}
 
 const multiplyMysteryNumberByFive = (mysteryNumberObject) => {
   // mysteryNumberObject has a property called mysteryNumber
@@ -54,8 +54,8 @@ const newUser = (name, email, password) => {
       this.email = email;
       this.password = password;
     }
-  };
-  return new User(name, email,password);
+  }
+  return new User(name, email, password);
 };
 
 const hasEmail = (user) => {
@@ -81,7 +81,7 @@ const verifyPassword = (user, password) => {
   // check to see if the provided password matches the password property on the user object
   // return true if they match
   // otherwise return false
-  let temp = user.password;
+  const	temp = user.password;
   if (temp === password) {
     return true;
   }
@@ -122,12 +122,12 @@ const sumUserPostLikes = (user) => {
   // return the sum
   let temp = 0;
   for (let i = 0; i < user.posts.length; i++) {
-    temp = temp + user.posts[i].likes;
+    temp += user.posts[i].likes;
   }
   return temp;
 };
 
-const addCalculateDiscountPriceMethod = (storeItem) => {
+function addCalculateDiscountPriceMethod(storeItem) {
   // add a method to the storeItem object called 'calculateDiscountPrice'
   // this method should multiply the storeItem's 'price' and 'discountPercentage' to get the discount
   // the method then subtracts the discount from the price and returns the discounted price
@@ -135,10 +135,10 @@ const addCalculateDiscountPriceMethod = (storeItem) => {
   // price -> 20
   // discountPercentage -> .2
   // discountPrice = 20 - (20 * .2)
-  function calculateDiscountPrice() {
-    return (storeItem.price - (storeItem.price * storeItem.discountPercentage));
-  }
-};
+  storeItem.calculateDiscountPrice = function () {
+    return (this.price - (this.price * this.discountPercentage));
+  };
+}
 
 // Do not modify code below this line.
 // --------------------------------

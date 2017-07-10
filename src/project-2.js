@@ -6,7 +6,7 @@ const getBiggest = (x, y) => {
   if (x >= y) {
     return x;
   }
-  return y
+  return y;
 };
 
 const greeting = (language) => {
@@ -16,21 +16,20 @@ const greeting = (language) => {
   // language: 'Spanish' -> 'Hola!'
   // if language is undefined return 'Hello!'
   if (language === 'German') {
-    return `Guten Tag!`;
+    return 'Guten Tag!';
   } else if (language === 'English') {
-    return `Hello!`;
+    return 'Hello!';
   } else if (language === 'Spanish') {
-    return `Hola!`;
-  } else {
-    return `Hello!`;
+    return 'Hola!';
   }
+  return 'Hello!';
 };
 
 const isTenOrFive = (num) => {
   // return true if num is 10 or 5
   // otherwise return false
   if (num === 5 || num === 10) {
-    return  true;
+    return true;
   }
   return false;
 };
@@ -62,11 +61,11 @@ const fizzBuzz = (num) => {
   // if num is divisible by 3 & 5 return 'fizzbuzz'
   // otherwise return num
   if (num % 15 === 0) {
-    return `fizzbuzz`;
+    return 'fizzbuzz';
   } else if (num % 3 === 0) {
-    return `fizz`;
+    return 'fizz';
   } else if (num % 5 === 0) {
-    return `buzz`;
+    return 'buzz';
   }
   return num;
 };
@@ -107,9 +106,9 @@ const incrementByOne = (arr) => {
   // arr is an array of integers
   // increase each integer by one
   // return the array
-  let copy = [];
+  const copy = [];
   for (let i = 0; i < arr.length; i++) {
-    copy.push(arr[i] +1);
+    copy.push(arr[i] + 1);
   }
   return copy;
 };
@@ -135,7 +134,7 @@ const wordsToSentence = (words) => {
   // spaces need to be between each word
   // example: ['Hello', 'world!'] -> 'Hello world!'
   let prev = words[0];
-  for (let i = 1; i < words.length; i++)  {
+  for (let i = 1; i < words.length; i++) {
     prev = prev + ' ' + words[i];
   }
   return prev;
@@ -155,7 +154,7 @@ const addNumbers = (numbers) => {
   // add all of the integers and return the value
   let temp = 0;
   for (let i = 0; i < numbers.length; i++) {
-    temp = temp + numbers[i];
+    temp += numbers[i];
   }
   return temp;
 };
@@ -165,9 +164,9 @@ const averageTestScore = (testScores) => {
   // return the average
   let total = 0;
   for (let i = 0; i < testScores.length; i++) {
-    total = total + testScores[i];
+    total += testScores[i];
   }
-  return total/testScores.length;
+  return total / testScores.length;
 };
 
 const largestNumber = (numbers) => {
