@@ -1,18 +1,18 @@
 // Do not change any of the function names
 
-function multiplyArguments() {
+function multiplyArguments(...args) {
   // use the arguments keyword to multiply all of the arguments together and return the product
   // if no arguments are passed in return 0
   // if one argument is passed in just return it
-  if (arguments.length === 1) {
-    return arguments[0];
+  if (args.length === 1) {
+    return args[0];
   }
-  if (arguments.length === 0) {
+  if (args.length === 0) {
     return 0;
   }
-  let memo = arguments[0];
-  for (let i = 1; i < arguments.length; i++) {
-    memo *= arguments[i];
+  let memo = args[0];
+  for (let i = 1; i < args.length; i++) {
+    memo *= args[i];
   }
   return memo;
 }
@@ -66,9 +66,7 @@ const getUserConstructor = () => {
       this.email = options.email;
       this.password = options.password;
     }
-    sayHi() {
-      `Hello, my name is ${this.name}`;
-    }
+    sayHi() { return `Hello, my name is ${this.name}`; }
   }
   return User;
 };
@@ -76,7 +74,7 @@ const getUserConstructor = () => {
 const addPrototypeMethod = (Constructor) => {
   // add a method to the constructor's prototype
   // the method should be called 'sayHi' and should return the string 'Hello World!'
-  Constructor.prototype.sayHi = function () { return 'Hello World!'; };
+  Constructor.prototype.sayHi = function sayHi() { return 'Hello World!'; };
 };
 
 const addReverseString = (StringPrototype) => {
@@ -84,7 +82,7 @@ const addReverseString = (StringPrototype) => {
   // name this method reverse
   // hint:
   // you will need to use 'this' inside of reverse
-  String.prototype.reverse = function () {
+  String.prototype.reverse = function reverse() {
     return this.split('').reverse('').join('');
   };
 };

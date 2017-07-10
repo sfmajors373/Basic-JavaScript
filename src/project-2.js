@@ -135,7 +135,7 @@ const wordsToSentence = (words) => {
   // example: ['Hello', 'world!'] -> 'Hello world!'
   let prev = words[0];
   for (let i = 1; i < words.length; i++) {
-    prev = prev + ' ' + words[i];
+    prev = `${prev} ${words[i]}`;
   }
   return prev;
 };

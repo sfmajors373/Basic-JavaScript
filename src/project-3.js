@@ -6,12 +6,13 @@ const makeCat = (name, age) => {
   // add a method called meow that returns the string 'Meow!'
   // return the object
   class Cat {
-    constructor(name, age) {
+    constructor() {
       this.name = name;
       this.age = age;
+      this.meowTxt = 'Meow!';
     }
     meow() {
-      return 'Meow!';
+      return this.meowTxt;
     }
   }
   return new Cat(name, age);
@@ -25,12 +26,14 @@ const addProperty = (object, property) => {
   return object;
 };
 
-function invokeMethod(object, method) {
+const invokeMethod = (object, method) => {
   // method is a string that contains the name of a method on the object
   // invoke this method
   // nothing needs to be returned
-  this.object[method]();
-}
+  // object.x = 1;
+  // object.incrementX();
+  object[method].bind(object);
+};
 
 const multiplyMysteryNumberByFive = (mysteryNumberObject) => {
   // mysteryNumberObject has a property called mysteryNumber
@@ -49,7 +52,7 @@ const newUser = (name, email, password) => {
   // create a new object with properties matching the arguments passed in.
   // return the new object
   class User {
-    constructor(name, email, password) {
+    constructor() {
       this.name = name;
       this.email = email;
       this.password = password;
@@ -71,7 +74,7 @@ const hasProperty = (object, property) => {
   // return true if the object has the value of the property argument
   // property is a string
   // otherwise return false
-  if (object.hasOwnProperty(property)) {
+  if (Object.hasOwnProperty.call(object, property)) {
     return true;
   }
   return false;
@@ -81,7 +84,7 @@ const verifyPassword = (user, password) => {
   // check to see if the provided password matches the password property on the user object
   // return true if they match
   // otherwise return false
-  const	temp = user.password;
+  const temp = user.password;
   if (temp === password) {
     return true;
   }
@@ -127,7 +130,7 @@ const sumUserPostLikes = (user) => {
   return temp;
 };
 
-function addCalculateDiscountPriceMethod(storeItem) {
+const addCalculateDiscountPriceMethod = (storeItem) => {
   // add a method to the storeItem object called 'calculateDiscountPrice'
   // this method should multiply the storeItem's 'price' and 'discountPercentage' to get the discount
   // the method then subtracts the discount from the price and returns the discounted price
@@ -135,10 +138,10 @@ function addCalculateDiscountPriceMethod(storeItem) {
   // price -> 20
   // discountPercentage -> .2
   // discountPrice = 20 - (20 * .2)
-  storeItem.calculateDiscountPrice = function () {
+  storeItem.calculateDiscountPrice = function calculateDiscountPrice() {
     return (this.price - (this.price * this.discountPercentage));
   };
-}
+};
 
 // Do not modify code below this line.
 // --------------------------------
